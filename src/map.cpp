@@ -36,6 +36,25 @@ bool loadMap(const char* filePath, Map& map) {
         return false;
     }
 
+    if (map.cells[1][1] != 0) {
+        return false;
+    }
+
+    bool hasExit = false;
+
+    for (int row = 0; row < ROWS; row++) {
+        for (int col = 0; col < COLS; col++) {
+
+            if (map.cells[row][col] == 4) {
+                hasExit = true;
+            }
+        }
+    }
+
+    if (!hasExit) {
+        return false;
+    }
+
     return true;
 
 }
