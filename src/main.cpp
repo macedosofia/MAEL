@@ -1,8 +1,20 @@
 #include "raylib.h"
+#include "map.h"
+
+#include <iostream>
 
 int main() {
     const int windowWidth = 800;
     const int windowHeight = 600;
+
+    Map map{};
+
+    if (!loadMap("data/fase1.txt", map)) {
+        std::cerr << "Error loading the map!" << std::endl;
+        return 1;
+    }
+
+    std::cout << "Map loaded successfully!" << std::endl;
 
     InitWindow(windowWidth, windowHeight, "RoboLab - O Despertar");
 
