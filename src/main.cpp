@@ -33,8 +33,9 @@ int main() {
         const int panelX = COLS * TILE_SIZE;
         DrawRectangle(panelX, 0, PANEL_WIDTH, windowHeight, Color{25, 28, 35, 255});
 
-        DrawText("FASE 1 - O DESPERTAR", 200, 200, 30, RAYWHITE);
-        DrawText("Pressione ESC para sair", 200, 320, 20, GRAY);
+        DrawText("FASE 1", panelX + 20, 40, 24, RAYWHITE);
+        DrawText("O DESPERTAR", panelX + 20, 80, 18, LIGHTGRAY);
+        DrawText("Pressione ESC para sair", panelX + 20, 550, 14, GRAY);
 
         EndDrawing();
     }
