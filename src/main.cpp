@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "map.h"
 #include "map_renderer.h"
+#include "robot.h"
 
 #include <iostream>
 
@@ -20,6 +21,16 @@ int main() {
 
     std::cout << "Map loaded successfully!" << std::endl;
 
+    constexpr int START_ROW = 1;
+    constexpr int START_COL = 1;
+
+    Robot player{START_ROW, START_COL, 100, 3, 0};
+
+    if (!isValidStartingPosition(player, map)) {
+        std::cerr << "Invalid starting position!" << std::endl;
+        return 1;
+    }
+
     InitWindow(windowWidth, windowHeight, "RoboLab - O Despertar");
 
     SetTargetFPS(60);
@@ -30,6 +41,8 @@ int main() {
         ClearBackground(BLACK);
 
         drawMap(map, TILE_SIZE, 0, 0);
+        drawRobot(player, TILE_SIZE, 0, 0);
+        
         const int panelX = COLS * TILE_SIZE;
         DrawRectangle(panelX, 0, PANEL_WIDTH, windowHeight, Color{25, 28, 35, 255});
 
