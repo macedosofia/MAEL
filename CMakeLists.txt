@@ -23,6 +23,7 @@ FetchContent_MakeAvailable(raylib)
 add_executable(game
     src/main.cpp
     src/map.cpp
+    src/map_renderer.cpp
 )
 
 target_include_directories(game PRIVATE include)
