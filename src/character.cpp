@@ -33,3 +33,18 @@ void moveCharacter(Character& character, int deltaRow, int deltaCol) {
     character.row = newRow;
     character.col = newCol;
 }
+
+void updateCharacter(Character& character) {
+    if (IsKeyPressed(KEY_W) || IsKeyPressed(KEY_UP)) {
+        moveCharacter(character, -1, 0);
+    }
+    else if (IsKeyPressed(KEY_S) || IsKeyPressed(KEY_DOWN)) {
+        moveCharacter(character, 1, 0);
+    }
+    else if (IsKeyPressed(KEY_A) || IsKeyPressed(KEY_LEFT)) {
+        moveCharacter(character, 0, -1);
+    }
+    else if (IsKeyPressed(KEY_D) || IsKeyPressed(KEY_RIGHT)) {
+        moveCharacter(character, 0, 1);
+    }
+}

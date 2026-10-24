@@ -1,5 +1,5 @@
-#ifndef Character_H
-#define Character_H
+#ifndef CHARACTER_H
+#define CHARACTER_H
 
 #include "map.h"
 
@@ -16,5 +16,7 @@ bool isValidStartingPosition(const Character& character, const Map& map);
 void drawCharacter(const Character& character, int tileSize, int offsetX, int offsetY);
 
 void moveCharacter(Character& character, int deltaRow, int deltaCol);
+
+void updateCharacter(Character& character);
 
 #endif
