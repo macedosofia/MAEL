@@ -8,5 +8,5 @@ void drawSidePanel(int x, int y, int width, int height, int levelNumber, const c
 
     DrawText(levelName, x + 20, y + 80, 18, LIGHTGRAY);
 
-    DrawText("ESC: sair",x + 20,y + height - 50, 14, GRAY);
+    DrawText("ESC: sair",x + 20,y + height - 50, 16, GRAY);
 }
