@@ -22,9 +22,11 @@ FetchContent_MakeAvailable(raylib)
 
 add_executable(game
     src/main.cpp
+    src/game.cpp
     src/map.cpp
     src/map_renderer.cpp
-    src/robot.cpp
+    src/character.cpp
+    src/ui.cpp
 )
 
 target_include_directories(game PRIVATE include)
