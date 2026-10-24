@@ -29,26 +29,26 @@ int runGame() {
 
     std::cout << "Map loaded successfully!" << std::endl;
 
-    Character player{START_ROW, START_COL, 100, 3, 0};
+    Character mael{START_ROW, START_COL, 100, 3, 0};
 
-    if (!isValidStartingPosition(player, map)) {
+    if (!isValidStartingPosition(mael, map)) {
         std::cerr << "Invalid starting position!" << std::endl;
         return 1;
     }
 
-    InitWindow(windowWidth, windowHeight, "Definir Nome - O Despertar");
+    InitWindow(windowWidth, windowHeight, "MAEL - O Despertar");
 
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) {
-        updateCharacter(player, map);
+        updateCharacter(mael, map);
 
         BeginDrawing();
 
         ClearBackground(BLACK);
 
         drawMap(map, TILE_SIZE, 0, 0);
-        drawCharacter(player, TILE_SIZE, 0, 0);
+        drawCharacter(mael, TILE_SIZE, 0, 0);
 
         drawSidePanel(mapWidth, 0, PANEL_WIDTH, windowHeight, 1, "O DESPERTAR");
 

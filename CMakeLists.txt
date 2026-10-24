@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(RoboLab LANGUAGES C CXX)
+project(MAEL LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -20,7 +20,7 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(raylib)
 
-add_executable(game
+add_executable(MAEL
     src/main.cpp
     src/game.cpp
     src/map.cpp
@@ -29,6 +29,6 @@ add_executable(game
     src/ui.cpp
 )
 
-target_include_directories(game PRIVATE include)
+target_include_directories(MAEL PRIVATE include)
 
-target_link_libraries(game PRIVATE raylib)
+target_link_libraries(MAEL PRIVATE raylib)

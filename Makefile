@@ -9,4 +9,4 @@ build: configure
 	cmake --build build
 
 run: build
-	./build/game
+	./build/MAEL
