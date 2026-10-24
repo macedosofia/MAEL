@@ -40,8 +40,16 @@ int runGame() {
 
     SetTargetFPS(60);
 
+    bool levelCompleted = false;
+
     while (!WindowShouldClose()) {
-        updateCharacter(mael, map);
+        if (!levelCompleted) {
+            updateCharacter(mael, map);
+
+            if (isExit(map, mael.row, mael.col)) {
+                levelCompleted = true;
+            }
+        }
 
         BeginDrawing();
 
@@ -51,6 +59,10 @@ int runGame() {
         drawCharacter(mael, TILE_SIZE, 0, 0);
 
         drawSidePanel(mapWidth, 0, PANEL_WIDTH, windowHeight, 1, "O DESPERTAR");
+
+        if (levelCompleted) {
+            drawLevelCompletedMessage(mapWidth + 20, windowHeight / 2);
+        }
 
         EndDrawing();
     }

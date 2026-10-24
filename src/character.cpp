@@ -6,7 +6,7 @@ bool isValidStartingPosition(const Character& character, const Map& map) {
         return false;
     }
 
-    return map.cells[character.row][character.col] == 0;
+    return map.cells[character.row][character.col] == TILE_EMPTY;
 }
 
 void drawCharacter(const Character& character, int tileSize, int offsetX, int offsetY) {

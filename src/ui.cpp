@@ -10,3 +10,7 @@ void drawSidePanel(int x, int y, int width, int height, int levelNumber, const c
 
     DrawText("ESC: sair",x + 20,y + height - 50, 16, GRAY);
 }
+
+void drawLevelCompletedMessage(int x, int y) {
+    DrawText("FASE CONCLUÍDA!", x, y, 16, GREEN);
+}

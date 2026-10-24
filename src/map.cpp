@@ -39,7 +39,7 @@ bool loadMap(const char* filePath, Map& map) {
 
     for (int row = 0; row < ROWS; row++) {
         for (int col = 0; col < COLS; col++) {
-            if (map.cells[row][col] == 4) {
+            if (map.cells[row][col] == TILE_EXIT) {
                 hasExit = true;
             }
         }
@@ -63,5 +63,13 @@ bool isWalkable(const Map& map, int row, int col) {
         return false;
     }
 
-    return map.cells[row][col] != 1;
+    return map.cells[row][col] != TILE_WALL;
+}
+
+bool isExit(const Map& map, int row, int col) {
+    if (!isInsideMap(row, col)) {
+        return false;
+    }
+
+    return map.cells[row][col] == TILE_EXIT;
 }
