@@ -2,8 +2,7 @@
 #include "raylib.h"
 
 bool isValidStartingPosition(const Character& character, const Map& map) {
-    if (character.row < 0 || character.row >= ROWS ||
-        character.col < 0 || character.col >= COLS) {
+    if (!isInsideMap(character.row, character.col)) {
         return false;
     }
 
@@ -21,12 +20,11 @@ void drawCharacter(const Character& character, int tileSize, int offsetX, int of
     DrawRectangle(x, y, size, size, SKYBLUE);
 }
 
-void moveCharacter(Character& character, int deltaRow, int deltaCol) {
+void moveCharacter(Character& character, const Map& map, int deltaRow, int deltaCol) {
     int newRow = character.row + deltaRow;
     int newCol = character.col + deltaCol;
 
-    if (newRow < 0 || newRow >= ROWS ||
-        newCol < 0 || newCol >= COLS) {
+    if (!isWalkable(map, newRow, newCol)) {
         return;
     }
 
@@ -34,17 +32,17 @@ void moveCharacter(Character& character, int deltaRow, int deltaCol) {
     character.col = newCol;
 }
 
-void updateCharacter(Character& character) {
+void updateCharacter(Character& character, const Map& map) {
     if (IsKeyPressed(KEY_W) || IsKeyPressed(KEY_UP)) {
-        moveCharacter(character, -1, 0);
+        moveCharacter(character, map, -1, 0);
     }
     else if (IsKeyPressed(KEY_S) || IsKeyPressed(KEY_DOWN)) {
-        moveCharacter(character, 1, 0);
+        moveCharacter(character, map, 1, 0);
     }
     else if (IsKeyPressed(KEY_A) || IsKeyPressed(KEY_LEFT)) {
-        moveCharacter(character, 0, -1);
+        moveCharacter(character, map, 0, -1);
     }
     else if (IsKeyPressed(KEY_D) || IsKeyPressed(KEY_RIGHT)) {
-        moveCharacter(character, 0, 1);
+        moveCharacter(character, map, 0, 1);
     }
 }

@@ -41,7 +41,7 @@ int runGame() {
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) {
-        updateCharacter(player);
+        updateCharacter(player, map);
 
         BeginDrawing();
 

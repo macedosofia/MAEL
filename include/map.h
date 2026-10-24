@@ -10,4 +10,8 @@ struct Map {
 
 bool loadMap(const char* filePath, Map& map);
 
+bool isInsideMap(int row, int col);
+
+bool isWalkable(const Map& map, int row, int col);
+
 #endif

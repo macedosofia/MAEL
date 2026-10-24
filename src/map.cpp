@@ -52,3 +52,16 @@ bool loadMap(const char* filePath, Map& map) {
     return true;
 
 }
+
+bool isInsideMap(int row, int col) {
+    return row >= 0 && row < ROWS &&
+           col >= 0 && col < COLS;
+}
+
+bool isWalkable(const Map& map, int row, int col) {
+    if (!isInsideMap(row, col)) {
+        return false;
+    }
+
+    return map.cells[row][col] != 1;
+}
