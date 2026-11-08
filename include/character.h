@@ -19,4 +19,6 @@ void moveCharacter(Character& character, const Map& map, int deltaRow, int delta
 
 void updateCharacter(Character& character, const Map& map);
 
+void applyDamage(Character& character, int damage);
+
 #endif

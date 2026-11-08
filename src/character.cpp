@@ -46,3 +46,15 @@ void updateCharacter(Character& character, const Map& map) {
         moveCharacter(character, map, 0, 1);
     }
 }
+
+void applyDamage(Character& character, int damage) {
+    if (damage <= 0) {
+        return;
+    }
+
+    if (damage >= character.energy) {
+        character.energy = 0;
+    } else {
+        character.energy -= damage;
+    }
+}

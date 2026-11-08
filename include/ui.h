@@ -7,4 +7,6 @@ void drawSidePanel(int x, int y,
 
 void drawLevelCompletedMessage(int x, int y);
 
+void drawEnergyIndicator(int energy, int maxEnergy, int x, int y);
+
 #endif
