@@ -46,12 +46,12 @@ int runGame() {
 
     while (!WindowShouldClose()) {
         if (!levelCompleted) {
-    updateCharacter(mael, map);
+            updateCharacter(mael, map);
 
-    if (isExit(map, mael.row, mael.col)) {
-        levelCompleted = true;
-    }
-}
+            if (isExit(map, mael.row, mael.col)) {
+                levelCompleted = true;
+            }
+        }
 
         BeginDrawing();
 
