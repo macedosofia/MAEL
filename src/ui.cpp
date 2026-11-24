@@ -14,3 +14,23 @@ void drawSidePanel(int x, int y, int width, int height, int levelNumber, const c
 void drawLevelCompletedMessage(int x, int y) {
     DrawText("FASE CONCLUÍDA!", x, y, 16, GREEN);
 }
+
+void drawEnergyIndicator(int energy, int maxEnergy, int x, int y) {
+    const int barWidth = 160;
+    const int barHeight = 18;
+
+    DrawText("ENERGIA", x, y, 18, LIGHTGRAY);
+
+    DrawText(TextFormat("%d / %d", energy, maxEnergy),
+             x, y + 30, 18, RAYWHITE);
+
+    DrawRectangle(x, y + 60, barWidth, barHeight, DARKGRAY);
+
+    if (maxEnergy <= 0) {
+        return;
+    }
+
+    int filledWidth = (energy * barWidth) / maxEnergy;
+
+    DrawRectangle(x, y + 60, filledWidth, barHeight, GREEN);
+}

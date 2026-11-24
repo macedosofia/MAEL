@@ -46,3 +46,31 @@ void updateCharacter(Character& character, const Map& map) {
         moveCharacter(character, map, 0, 1);
     }
 }
+
+void applyDamage(Character& character, int damage) {
+    if (damage <= 0) {
+        return;
+    }
+
+    if (damage >= character.energy) {
+        character.energy = 0;
+    } else {
+        character.energy -= damage;
+    }
+}
+
+void recoverEnergy(Character& character, int qntEnergy, int maxEnergy) {
+    if (qntEnergy <= 0 || maxEnergy <= 0) {
+        return;
+    }
+
+    if (character.energy >= maxEnergy) {
+        return;
+    }
+
+    if (qntEnergy >= maxEnergy - character.energy) {
+        character.energy = maxEnergy;
+    } else {
+        character.energy += qntEnergy;
+    }
+}

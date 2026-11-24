@@ -20,6 +20,8 @@ int runGame() {
     const int windowWidth = mapWidth + PANEL_WIDTH;
     const int windowHeight = ROWS * TILE_SIZE;
 
+    constexpr int MAX_ENERGY = 100;
+
     Map map{};
 
     if (!loadMap("data/fase1.txt", map)) {
@@ -29,7 +31,7 @@ int runGame() {
 
     std::cout << "Map loaded successfully!" << std::endl;
 
-    Character mael{START_ROW, START_COL, 100, 3, 0};
+    Character mael{START_ROW, START_COL, MAX_ENERGY, 3, 0};
 
     if (!isValidStartingPosition(mael, map)) {
         std::cerr << "Invalid starting position!" << std::endl;
@@ -59,6 +61,8 @@ int runGame() {
         drawCharacter(mael, TILE_SIZE, 0, 0);
 
         drawSidePanel(mapWidth, 0, PANEL_WIDTH, windowHeight, 1, "O DESPERTAR");
+
+        drawEnergyIndicator(mael.energy, MAX_ENERGY, mapWidth + 20, 140);
 
         if (levelCompleted) {
             drawLevelCompletedMessage(mapWidth + 20, windowHeight / 2);
