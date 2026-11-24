@@ -21,4 +21,6 @@ void updateCharacter(Character& character, const Map& map);
 
 void applyDamage(Character& character, int damage);
 
+void recoverEnergy(Character& character, int qntEnergy, int maxEnergy);
+
 #endif

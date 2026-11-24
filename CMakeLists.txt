@@ -32,3 +32,8 @@ add_executable(MAEL
 target_include_directories(MAEL PRIVATE include)
 
 target_link_libraries(MAEL PRIVATE raylib)
+
+
+enable_testing()
+
+add_subdirectory(tests)
